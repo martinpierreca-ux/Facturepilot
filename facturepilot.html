@@ -486,6 +486,28 @@ select.inp{-webkit-appearance:none;appearance:none;background-image:url("data:im
 .email-confirm-box p{font-size:13px;color:var(--muted);line-height:1.6}
 .email-confirm-box .ecb-email{font-weight:700;color:var(--ink);font-size:13.5px;margin:8px 0}
 
+/* ================================================================
+   INDY AFFILIATE BLOCK
+================================================================ */
+.indy-block{background:var(--white);border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:72px 20px}
+.indy-inner{max-width:1100px;margin:0 auto}
+.indy-header{text-align:center;margin-bottom:44px}
+.indy-title{font-family:'Lora',serif;font-size:clamp(26px,3.5vw,44px);font-weight:700;letter-spacing:-.03em;margin-bottom:12px;color:var(--ink);line-height:1.1}
+.indy-title em{font-style:italic;color:var(--g)}
+.indy-sub{font-size:15px;color:var(--muted);line-height:1.7;max-width:520px;margin:0 auto}
+.indy-badge{display:inline-flex;align-items:center;gap:7px;background:var(--g-lt);border:1px solid var(--g-md);color:var(--g);border-radius:99px;padding:6px 16px;font-size:11px;font-weight:700;margin-bottom:16px;letter-spacing:.05em;text-transform:uppercase}
+.indy-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+@media(max-width:900px){.indy-cards{grid-template-columns:1fr}}
+.indy-card{display:flex;align-items:center;gap:16px;background:var(--cream);border:1.5px solid var(--line);border-radius:16px;padding:22px;text-decoration:none;color:inherit;transition:all .22s cubic-bezier(.34,1.3,.64,1)}
+.indy-card:hover{border-color:var(--g);transform:translateY(-3px);box-shadow:var(--sh-md);background:var(--g-lt)}
+.indy-card-ico{width:50px;height:50px;border-radius:13px;background:var(--white);border:1.5px solid var(--line);display:flex;align-items:center;justify-content:center;font-size:24px;flex-shrink:0;transition:transform .22s cubic-bezier(.34,1.3,.64,1)}
+.indy-card:hover .indy-card-ico{transform:scale(1.08) rotate(-5deg)}
+.indy-card-body{flex:1}
+.indy-card-title{font-size:15px;font-weight:700;margin-bottom:4px;color:var(--ink)}
+.indy-card-desc{font-size:12.5px;color:var(--muted);line-height:1.5}
+.indy-card-arrow{font-size:18px;color:var(--muted);flex-shrink:0;transition:transform .18s}
+.indy-card:hover .indy-card-arrow{transform:translateX(4px);color:var(--g)}
+
 /* LEGAL */
 .legal-wrap{max-width:700px;margin:0 auto;padding:52px 20px 80px}
 .legal-wrap h1{font-family:'Lora',serif;font-size:clamp(26px,4vw,42px);font-weight:700;letter-spacing:-.02em;margin-bottom:6px}
@@ -934,6 +956,43 @@ footer{background:var(--g2);color:rgba(255,255,255,.5);padding:52px 24px 36px;ma
     </div>
   </section>
 
+  <!-- INDY AFFILIATE BLOCK -->
+  <section class="indy-block reveal">
+    <div class="indy-inner">
+      <div class="indy-header">
+        <div class="indy-badge">Partenaire recommandé</div>
+        <h2 class="indy-title">Gérez toute votre compta avec <em>Indy</em></h2>
+        <p class="indy-sub">Indy est l'outil de comptabilité des auto-entrepreneurs et freelances. Factures électroniques, compte pro, déclarations fiscales — tout en un, gratuitement.</p>
+      </div>
+      <div class="indy-cards">
+        <a class="indy-card" href="https://urls.fr/_SLExE" target="_blank" rel="noopener noreferrer">
+          <div class="indy-card-ico">🧾</div>
+          <div class="indy-card-body">
+            <div class="indy-card-title">Factures électroniques gratuites</div>
+            <div class="indy-card-desc">Recevez et faites vos factures électroniques gratuitement avec Indy</div>
+          </div>
+          <div class="indy-card-arrow">→</div>
+        </a>
+        <a class="indy-card" href="https://urls.fr/nuntHK" target="_blank" rel="noopener noreferrer">
+          <div class="indy-card-ico">🏦</div>
+          <div class="indy-card-body">
+            <div class="indy-card-title">Compte pro gratuit</div>
+            <div class="indy-card-desc">Ouvrez un compte pro 100% gratuit conçu pour les indépendants</div>
+          </div>
+          <div class="indy-card-arrow">→</div>
+        </a>
+        <a class="indy-card" href="https://www.indy.fr/?ae=1694" target="_blank" rel="noopener noreferrer">
+          <div class="indy-card-ico">📊</div>
+          <div class="indy-card-body">
+            <div class="indy-card-title">Compta &amp; déclarations fiscales</div>
+            <div class="indy-card-desc">Automatisez votre comptabilité et vos déclarations fiscales avec Indy</div>
+          </div>
+          <div class="indy-card-arrow">→</div>
+        </a>
+      </div>
+    </div>
+  </section>
+
   <!-- FAQ -->
   <div class="faq-section">
     <div class="faq-title-block reveal">
@@ -1005,6 +1064,10 @@ footer{background:var(--g2);color:rgba(255,255,255,.5);padding:52px 24px 36px;ma
           <button class="footer-link" onclick="go('privacy')">Confidentialité</button>
           <button class="footer-link" onclick="go('terms')">CGU</button>
           <button class="footer-link" onclick="openMod('account')">Mon compte</button>
+          <div class="footer-col-title" style="margin-top:18px">Partenaires</div>
+          <a class="footer-link" href="https://urls.fr/_SLExE" target="_blank" rel="noopener noreferrer">Indy — Factures électroniques</a>
+          <a class="footer-link" href="https://urls.fr/nuntHK" target="_blank" rel="noopener noreferrer">Indy — Compte pro gratuit</a>
+          <a class="footer-link" href="https://www.indy.fr/?ae=1694" target="_blank" rel="noopener noreferrer">Indy — Compta automatisée</a>
         </div>
       </div>
       <div class="footer-bottom">
