@@ -1,0 +1,943 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FacturePilot — Générateur de facture &amp; devis gratuit pour auto-entrepreneur</title>
+<meta name="description" content="Créez une facture ou un devis conforme à la loi française en 2 minutes, gratuitement et sans inscription. Modèle 2026, mentions obligatoires incluses, export PDF immédiat.">
+<link rel="canonical" href="https://www.facturepilot.com/">
+<meta name="robots" content="index,follow">
+<meta property="og:type" content="website">
+<meta property="og:title" content="FacturePilot — Facture &amp; devis gratuits pour auto-entrepreneur">
+<meta property="og:description" content="Générateur de facture conforme 2026, gratuit et sans inscription. Export PDF immédiat.">
+<meta property="og:url" content="https://www.facturepilot.com/">
+<meta property="og:locale" content="fr_FR">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/style.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js" defer></script>
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"WebApplication",
+  "name":"FacturePilot",
+  "applicationCategory":"BusinessApplication",
+  "operatingSystem":"Web",
+  "offers":{"@type":"Offer","price":"0","priceCurrency":"EUR"},
+  "description":"Générateur de facture et devis gratuit et sans inscription pour auto-entrepreneurs et freelances en France.",
+  "url":"https://www.facturepilot.com/"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"FAQPage",
+  "mainEntity":[
+    {"@type":"Question","name":"FacturePilot est-il vraiment gratuit ?","acceptedAnswer":{"@type":"Answer","text":"Oui. Le générateur de factures et de devis est 100% gratuit, sans inscription et sans limite de nombre de documents."}},
+    {"@type":"Question","name":"Mes factures sont-elles conformes à la loi française ?","acceptedAnswer":{"@type":"Answer","text":"Oui. FacturePilot intègre automatiquement toutes les mentions obligatoires : numérotation, identité, SIRET, mention de TVA (franchise en base art. 293 B), conditions de paiement et pénalités de retard."}},
+    {"@type":"Question","name":"Mes données sont-elles enregistrées sur un serveur ?","acceptedAnswer":{"@type":"Answer","text":"Non. Tout reste dans votre navigateur (stockage local). Aucune donnée n'est envoyée sur un serveur, vous gardez le contrôle total."}}
+  ]
+}
+</script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap">
+    <a href="/" class="logo"><span class="mark"><img src="/favicon.svg" alt="Pilou, la mascotte FacturePilot"></span> FacturePilot</a>
+    <nav class="nav">
+      <a href="#fonctionnalites">Fonctionnalités</a>
+      <a href="/comparatif-comptes-pro">Comptes pro</a>
+      <a href="#outil" class="btn btn-primary" onclick="openTool();return false;">Créer ma facture</a>
+    </nav>
+  </div>
+</header>
+
+<div class="ticker"><div class="track">
+  <span>🧾 <b>Factures &amp; devis</b> gratuits</span><span>⚡ <b>2 minutes</b> chrono</span><span>🔒 <b>0 donnée</b> envoyée</span><span>🇫🇷 <b>Conforme 2026</b></span><span>📂 <b>Historique</b> &amp; clients</span><span>🏦 <b>Comptes pro</b> comparés</span>
+  <span>🧾 <b>Factures &amp; devis</b> gratuits</span><span>⚡ <b>2 minutes</b> chrono</span><span>🔒 <b>0 donnée</b> envoyée</span><span>🇫🇷 <b>Conforme 2026</b></span><span>📂 <b>Historique</b> &amp; clients</span><span>🏦 <b>Comptes pro</b> comparés</span>
+</div></div>
+
+<section class="hero">
+  <div class="aurora"><span class="blob b1"></span><span class="blob b2"></span><span class="blob b3"></span></div>
+  <div class="wrap">
+    <div class="hero-text reveal in">
+      <span class="eyebrow"><span class="dot"></span> Gratuit · Sans inscription · Conforme 2026</span>
+      <h1>La facture <span class="grad">qui se fait<br>toute seule.</span></h1>
+      <p class="sub">Le générateur de factures &amp; devis des auto-entrepreneurs français. Mentions légales incluses, PDF en 2 minutes. Zéro compte, zéro prise de tête.</p>
+      <div class="hero-cta">
+        <a href="#outil" class="btn btn-primary btn-lg" onclick="openTool();return false;">Créer ma facture →</a>
+        <a href="/comparatif-comptes-pro" class="btn btn-ghost btn-lg">Comparer les comptes pro</a>
+      </div>
+      <div class="trust">
+        <span><span class="ti">✓</span> 100% gratuit</span>
+        <span><span class="ti">✓</span> Aucune donnée envoyée</span>
+        <span><span class="ti">✓</span> Conforme à la loi</span>
+      </div>
+    </div>
+    <div class="hero-visual reveal d2 in">
+      <div class="inv-card">
+        <div class="ic-top">
+          <div><div class="ic-name">Studio Léa</div><div class="ic-tag">SIRET 812 456 789 00012</div></div>
+          <div style="text-align:right"><div class="ic-badge">FACTURE</div><div class="ic-tag">N° F-2026-014</div></div>
+        </div>
+        <div class="ic-row"><span>Création site vitrine</span><b>1 200,00 €</b></div>
+        <div class="ic-row"><span>Maintenance (3 mois)</span><b>240,00 €</b></div>
+        <div class="ic-row"><span>TVA — art. 293 B</span><span>Non applicable</span></div>
+        <div class="ic-total"><span>Net à payer</span><span>1 440,00 €</span></div>
+      </div>
+      <div class="float-badge fb1"><span class="ti">⚡</span> PDF en 2 min</div>
+      <div class="float-badge fb2"><span class="ti">🔒</span> Données privées</div>
+      <div class="float-badge fb3"><span class="ti">🇫🇷</span> Conforme</div>
+      <img class="mascot-badge" src="/favicon.svg" alt="Pilou, la mascotte FacturePilot">
+    </div>
+  </div>
+</section>
+
+<section style="padding:6px 0 40px">
+  <div class="wrap">
+    <div class="stats">
+      <div class="stat"><div class="n" data-count="2" data-suffix=" min">0 min</div><div class="l">pour facturer</div></div>
+      <div class="stat"><div class="n">0 €</div><div class="l">pour toujours</div></div>
+      <div class="stat"><div class="n" data-count="100" data-suffix=" %">0 %</div><div class="l">conforme à la loi</div></div>
+      <div class="stat"><div class="n">∞</div><div class="l">factures &amp; devis</div></div>
+    </div>
+  </div>
+</section>
+
+<section id="fonctionnalites">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Tout ce qu'il faut pour facturer sans stress</h2>
+      <p>Pas de logiciel à installer, pas d'abonnement. Juste l'essentiel, bien fait.</p>
+    </div>
+    <div class="grid grid-3">
+      <div class="card"><div class="ico">📄</div><h3>Factures &amp; devis conformes</h3><p>Numérotation automatique, identité, SIRET, mention de TVA et pénalités de retard : rien n'est oublié.</p></div>
+      <div class="card"><div class="ico">⚡</div><h3>PDF en un clic</h3><p>Remplissez, prévisualisez, téléchargez. Un PDF propre prêt à envoyer à votre client en quelques secondes.</p></div>
+      <div class="card"><div class="ico">🔒</div><h3>Vos données restent chez vous</h3><p>Tout est stocké dans votre navigateur. Aucune inscription, aucun serveur, aucune fuite possible.</p></div>
+      <div class="card"><div class="ico">🇫🇷</div><h3>Pensé pour la France</h3><p>Franchise en base de TVA (art. 293 B), micro-entreprise, professions libérales : les cas français sont gérés.</p></div>
+      <div class="card"><div class="ico">🔁</div><h3>Réutilisez vos infos</h3><p>Vos coordonnées d'entreprise sont mémorisées. La prochaine facture se crée encore plus vite.</p></div>
+      <div class="card"><div class="ico">📅</div><h3>Prêt pour 2026</h3><p>On vous explique la facturation électronique obligatoire et comment vous y préparer sereinement.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="bg-soft">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>3 étapes, 2 minutes</h2>
+      <p>Aussi simple que de remplir un formulaire.</p>
+    </div>
+    <div class="steps">
+      <div class="step"><div class="num">1</div><h3>Vos infos</h3><p>Renseignez votre entreprise et votre client (mémorisé pour la suite).</p></div>
+      <div class="step"><div class="num">2</div><h3>Vos prestations</h3><p>Ajoutez vos lignes, quantités et prix. Le total se calcule tout seul.</p></div>
+      <div class="step"><div class="num">3</div><h3>Téléchargez</h3><p>Aperçu, puis PDF prêt à envoyer. Conforme et professionnel.</p></div>
+    </div>
+    <div style="text-align:center;margin-top:40px">
+      <a href="#outil" class="btn btn-primary btn-lg" onclick="openTool();return false;">Je crée ma facture →</a>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="aff-box">
+      <h3>Séparez vos finances pro et perso</h3>
+      <p>Un compte bancaire professionnel rend votre comptabilité 10× plus simple et vous fait gagner du temps à chaque facture. Nos partenaires offrent des comptes pensés pour les indépendants.</p>
+      <a href="/comparatif-comptes-pro" class="btn btn-primary btn-lg">Découvrir les comptes pro recommandés →</a>
+      <div class="aff-note">Lien partenaire — nous touchons une commission, sans surcoût pour vous. Cela finance la gratuité de l'outil.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ INDY AFFILIATE ============ -->
+<section class="bg-soft">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="kicker">Partenaire recommandé</span>
+      <h2>Gérez toute votre compta avec Indy</h2>
+      <p>Indy est l'outil de comptabilité des auto-entrepreneurs français : factures électroniques, compte pro gratuit et déclarations automatisées.</p>
+    </div>
+    <div class="grid grid-3">
+      <a class="guide-card" href="https://urls.fr/_SLExE" target="_blank" rel="noopener sponsored">
+        <span class="tag">🧾 Facturation</span>
+        <h3>Factures électroniques gratuites</h3>
+        <p>Recevez et émettez vos factures électroniques gratuitement avec Indy — prêt pour la réforme 2026.</p>
+        <span class="more">Découvrir →</span>
+      </a>
+      <a class="guide-card" href="https://urls.fr/nuntHK" target="_blank" rel="noopener sponsored">
+        <span class="tag">🏦 Compte pro</span>
+        <h3>Compte pro gratuit</h3>
+        <p>Un compte bancaire professionnel sans frais de tenue, pensé pour les indépendants et auto-entrepreneurs.</p>
+        <span class="more">Ouvrir un compte →</span>
+      </a>
+      <a class="guide-card" href="https://www.indy.fr/?ae=1694" target="_blank" rel="noopener sponsored">
+        <span class="tag">📊 Comptabilité</span>
+        <h3>Compta &amp; déclarations fiscales</h3>
+        <p>Livre des recettes automatisé, déclarations URSSAF simplifiées et liasse fiscale intégrée.</p>
+        <span class="more">Essayer Indy →</span>
+      </a>
+    </div>
+    <p style="text-align:center;font-size:13px;color:var(--muted);margin-top:16px">Liens partenaires — nous percevons une commission si vous ouvrez un compte, sans surcoût pour vous.</p>
+  </div>
+</section>
+
+<section id="faq" class="bg-soft">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Questions fréquentes</h2>
+    </div>
+    <div class="faq">
+      <details open><summary>FacturePilot est-il vraiment gratuit ?</summary><p>Oui, totalement. Le générateur de factures et de devis est gratuit, sans inscription et sans limite. L'outil est financé par nos recommandations partenaires (comptes pro, outils de compta), jamais par un abonnement.</p></details>
+      <details><summary>Mes factures sont-elles conformes à la loi ?</summary><p>Oui. FacturePilot intègre les mentions obligatoires d'une facture en France : la mention « Facture », un numéro unique, la date, votre identité et SIRET, l'identité du client, le détail des prestations, la mention de TVA adaptée (franchise en base, art. 293 B du CGI), les conditions et pénalités de paiement, ainsi que l'indemnité forfaitaire de 40 € entre professionnels.</p></details>
+      <details><summary>Où sont stockées mes données ?</summary><p>Uniquement dans votre navigateur (localStorage). Rien n'est envoyé sur un serveur, rien n'est partagé. Si vous changez d'ordinateur ou videz votre cache, les données ne suivent pas — pensez à conserver vos PDF.</p></details>
+      <details><summary>Et la facture électronique obligatoire en 2026 ?</summary><p>La réforme impose progressivement la facturation électronique aux entreprises françaises. Nous avons rédigé un <a href="/guide/facture-electronique-2026-auto-entrepreneur" style="color:var(--green-d)">guide complet sur la réforme 2026</a> pour les auto-entrepreneurs, avec le calendrier et les étapes à anticiper.</p></details>
+      <details><summary>Puis-je créer un devis aussi ?</summary><p>Oui. Basculez le type de document sur « Devis » dans l'outil : la numérotation et les mentions s'adaptent automatiquement.</p></details>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="cta-banner">
+      <h2>Prêt à envoyer votre première facture ?</h2>
+      <p>Gratuit, immédiat, sans création de compte.</p>
+      <a href="#outil" class="btn btn-primary btn-lg" onclick="openTool();return false;">Créer ma facture maintenant →</a>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="cols">
+      <div>
+        <div class="logo"><span class="mark"><img src="/favicon.svg" alt="Pilou, la mascotte FacturePilot"></span> FacturePilot</div>
+        <p>Le générateur de factures et devis gratuit pour les auto-entrepreneurs et freelances français.</p>
+      </div>
+      <div>
+        <h4>Outil</h4>
+        <ul>
+          <li><a href="#outil" onclick="openTool();return false;">Créer une facture</a></li>
+          <li><a href="#outil" onclick="openTool('devis');return false;">Créer un devis</a></li>
+          <li><a href="#faq">FAQ</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Guides SEO</h4>
+        <ul>
+          <li><a href="/guide/">Tous les guides</a></li>
+          <li><a href="/guide/facture-electronique-2026-auto-entrepreneur">Facture électronique 2026</a></li>
+          <li><a href="/guide/mentions-obligatoires-facture-auto-entrepreneur">Mentions obligatoires</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="bottom">
+      <span>© 2026 FacturePilot — Outil gratuit, information non contractuelle.</span>
+      <span>Fait en France 🇫🇷</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  const h=document.querySelector('.site-header');
+  const onScroll=()=>{h&&h.classList.toggle('scrolled',window.scrollY>10);};
+  window.addEventListener('scroll',onScroll,{passive:true});onScroll();
+  const sel='.section-head,.card,.step,.stat,.guide-card,.faq details,.cta-banner,.aff-box,.ebook,.adslot,.bank-card,.cp-table';
+  const els=[...document.querySelectorAll(sel)].filter(e=>!e.closest('.hero'));
+  els.forEach((e,i)=>{e.classList.add('reveal');if(i%3)e.classList.add('d'+(i%3));});
+  if('IntersectionObserver' in window){
+    const io=new IntersectionObserver((ents)=>{ents.forEach(en=>{if(en.isIntersecting){en.target.classList.add('in');io.unobserve(en.target);}});},{rootMargin:'0px 0px -8% 0px'});
+    els.forEach(e=>io.observe(e));
+  } else {els.forEach(e=>e.classList.add('in'));}
+  const counters=document.querySelectorAll('[data-count]');
+  const run=(el)=>{const to=+el.dataset.count,suf=el.dataset.suffix||'';let t0=null;const dur=1100;
+    const step=(ts)=>{if(!t0)t0=ts;const p=Math.min((ts-t0)/dur,1);const v=Math.round((0.5-Math.cos(p*Math.PI)/2)*to);el.textContent=v+suf;if(p<1)requestAnimationFrame(step);};requestAnimationFrame(step);};
+  if('IntersectionObserver' in window){
+    const io2=new IntersectionObserver((ents)=>{ents.forEach(en=>{if(en.isIntersecting){run(en.target);io2.unobserve(en.target);}});});
+    counters.forEach(c=>io2.observe(c));
+  } else counters.forEach(run);
+  const card=document.querySelector('.inv-card');
+  const hv=document.querySelector('.hero-visual');
+  if(card&&hv&&matchMedia('(pointer:fine)').matches){
+    hv.addEventListener('mousemove',e=>{const r=hv.getBoundingClientRect();const x=(e.clientX-r.left)/r.width-0.5,y=(e.clientY-r.top)/r.height-0.5;card.style.transform=`rotateY(${-12+x*10}deg) rotateX(${6-y*10}deg)`;});
+    hv.addEventListener('mouseleave',()=>{card.style.transform='';});
+  }
+})();
+</script>
+
+<div id="toolOverlay" class="tool-overlay">
+  <div class="tool-modal">
+    <div class="tool-bar">
+      <div class="tool-tabs">
+        <select id="docTypeSel" class="doctype-sel" onchange="setDocType(this.value)">
+          <option value="facture">🧾 Facture</option>
+          <option value="devis">📝 Devis</option>
+          <option value="acompte">💶 Facture d'acompte</option>
+          <option value="avoir">↩️ Facture d'avoir</option>
+          <option value="quittance">🏠 Quittance de loyer</option>
+        </select>
+      </div>
+      <div style="display:flex;gap:8px;align-items:center">
+        <button class="btn btn-ghost btn-sm" id="histBtn" onclick="toggleHist()">📂 Mes documents <span id="histCount"></span></button>
+        <button class="tool-close" onclick="closeTool()" aria-label="Fermer">✕</button>
+      </div>
+    </div>
+    <div class="tool-body">
+      <div class="tool-form">
+        <p class="tool-intro">Remplis les champs — ta facture se génère <strong>en direct</strong> à droite. Quand c'est bon : <strong>télécharge le PDF</strong> et envoie-le comme tu veux (mail, WhatsApp, SMS…).</p>
+        <details class="acc" id="accCompany" open>
+          <summary>🏢 Tes infos d'entreprise <em>(à remplir une seule fois)</em></summary>
+          <div class="acc-body">
+            <div class="fg"><label>Nom / Raison sociale</label><input id="f_name" placeholder="Jean Dupont" oninput="render()"></div>
+            <div class="fr2">
+              <div class="fg"><label>SIRET</label><input id="f_siret" placeholder="123 456 789 00012" oninput="render()"></div>
+              <div class="fg"><label>Téléphone</label><input id="f_phone" placeholder="06 12 34 56 78" oninput="render()"></div>
+            </div>
+            <div class="fg"><label>Adresse</label><input id="f_addr" placeholder="12 rue de la République, 17000 La Rochelle" oninput="render()"></div>
+            <div class="fr2">
+              <div class="fg"><label>Email</label><input id="f_email" placeholder="contact@exemple.fr" oninput="render()"></div>
+              <div class="fg"><label>IBAN (optionnel)</label><input id="f_iban" placeholder="FR76 ..." oninput="render()"></div>
+            </div>
+            <div class="fg"><label>Logo (optionnel)</label>
+              <input type="file" id="f_logo" accept="image/*" onchange="onLogo(this)">
+              <div id="logoPrev" style="display:none;margin-top:8px;align-items:center;gap:10px">
+                <img id="logoImg" alt="logo" style="height:38px;border:1px solid var(--line);border-radius:6px;padding:3px;background:#fff">
+                <button class="btn btn-ghost btn-sm" type="button" onclick="removeLogo()">Retirer</button>
+              </div>
+            </div>
+            <button class="btn btn-ghost btn-sm" type="button" onclick="saveProfile(true)">💾 Mémoriser (ne plus ressaisir)</button>
+          </div>
+        </details>
+        <h4 class="form-sec" id="secClientTitle">Votre client</h4>
+        <div id="clientPickRow" class="fg" style="display:none"><label>Client enregistré</label>
+          <select id="clientPicker" onchange="pickClient(this.value)">
+            <option value="">— Nouveau client —</option>
+          </select>
+        </div>
+        <div class="fg"><label>Nom du client</label><input id="c_name" placeholder="Société Martin SARL" oninput="render()"></div>
+        <div class="fg"><label>Adresse du client</label><input id="c_addr" placeholder="5 avenue des Champs, 75008 Paris" oninput="render()"></div>
+        <div class="fr2">
+          <div class="fg"><label>SIRET client (si pro)</label><input id="c_siret" placeholder="Optionnel" oninput="render()"></div>
+          <div class="fg"><label>Email client</label><input id="c_email" placeholder="Optionnel" oninput="render()"></div>
+        </div>
+        <button class="btn btn-ghost btn-sm" type="button" onclick="saveCurrentClient()">💾 Enregistrer ce client dans mon carnet</button>
+        <h4 class="form-sec" id="secDocTitle">Document</h4>
+        <div class="fr3">
+          <div class="fg"><label>Numéro</label><input id="d_num" oninput="render()"></div>
+          <div class="fg"><label>Date</label><input id="d_date" type="date" oninput="render()"></div>
+          <div class="fg" id="fgDue"><label>Échéance</label><input id="d_due" type="date" oninput="render()"></div>
+        </div>
+        <div class="fg" id="rowRef" style="display:none"><label>Réf. facture d'origine (avoir)</label><input id="d_ref" placeholder="F-2026-001" oninput="render()"></div>
+        <div id="secPrestations">
+        <h4 class="form-sec">Prestations</h4>
+        <div id="servicePickRow" class="fg" style="display:none"><label>Mon catalogue de prestations</label>
+          <select id="servicePicker" onchange="addServiceLine(this.value)">
+            <option value="">+ Ajouter une prestation enregistrée…</option>
+          </select>
+        </div>
+        <div id="lines"></div>
+        <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:6px">
+          <button class="btn btn-ghost btn-sm" type="button" onclick="addLine()">+ Ajouter une ligne</button>
+          <button class="btn btn-ghost btn-sm" type="button" onclick="saveServices()">💾 Enregistrer ces prestations</button>
+        </div>
+        </div>
+        <div id="secQuittance" style="display:none">
+          <h4 class="form-sec">Détails du loyer</h4>
+          <div class="fg"><label>Adresse du logement loué</label><input id="q_logement" placeholder="3 rue des Lilas, 75011 Paris" oninput="render()"></div>
+          <div class="fr2">
+            <div class="fg"><label>Période — du</label><input id="q_pstart" type="date" oninput="render()"></div>
+            <div class="fg"><label>au</label><input id="q_pend" type="date" oninput="render()"></div>
+          </div>
+          <div class="fr2">
+            <div class="fg"><label>Loyer hors charges (€)</label><input id="q_rent" type="number" min="0" step="0.01" placeholder="700" oninput="render()"></div>
+            <div class="fg"><label>Charges (€)</label><input id="q_charges" type="number" min="0" step="0.01" placeholder="50" oninput="render()"></div>
+          </div>
+          <div class="fr2">
+            <div class="fg"><label>Date de paiement</label><input id="q_paydate" type="date" oninput="render()"></div>
+            <div class="fg"><label>Fait à (ville)</label><input id="q_city" placeholder="Paris" oninput="render()"></div>
+          </div>
+        </div>
+        <details class="acc" id="accOptions">
+          <summary>⚙️ Options — TVA &amp; mentions <em>(franchise par défaut)</em></summary>
+          <div class="acc-body">
+            <div class="fg">
+              <label>Régime de TVA</label>
+              <select id="d_tva" onchange="render()">
+                <option value="franchise">Franchise en base — TVA non applicable (art. 293 B)</option>
+                <option value="tva20">TVA 20 %</option>
+                <option value="tva10">TVA 10 %</option>
+                <option value="tva55">TVA 5,5 %</option>
+              </select>
+            </div>
+            <div class="fg"><label>Note / conditions (optionnel)</label><textarea id="d_note" class="fi" rows="2" placeholder="Paiement à réception. Merci de votre confiance." oninput="render()"></textarea></div>
+          </div>
+        </details>
+        <div class="form-actions">
+          <button id="dlBtn" class="btn btn-primary btn-block btn-lg" onclick="downloadPDF()">⬇ Télécharger le PDF</button>
+          <button class="btn btn-ghost btn-block" onclick="resetData()" style="margin-top:8px">Réinitialiser</button>
+        </div>
+      </div>
+      <div class="tool-preview">
+        <div id="invoice" class="invoice-sheet"></div>
+      </div>
+    </div>
+    <div id="histPanel" class="hist-panel">
+      <div class="hist-head">
+        <strong>📂 Mes documents enregistrés</strong>
+        <button class="tool-close" onclick="toggleHist()" aria-label="Fermer">✕</button>
+      </div>
+      <div class="hist-note">Ces documents sont enregistrés <strong>dans ce navigateur uniquement</strong> — rien n'est envoyé sur un serveur. Pense à garder tes PDF.</div>
+      <div id="histList"></div>
+    </div>
+  </div>
+</div>
+
+<style>
+.fg{display:flex;flex-direction:column;gap:5px;margin-bottom:13px}
+.fg label{font-size:12px;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:.03em}
+.fg input,.fg select,.fg textarea,.fi{padding:10px 12px;border:1px solid var(--line);border-radius:8px;width:100%;color:var(--ink);background:#fff;transition:.15s}
+.fg input:focus,.fg select:focus,.fg textarea:focus{outline:none;border-color:var(--green);box-shadow:0 0 0 3px rgba(22,163,74,.12)}
+.fr2{display:grid;grid-template-columns:1fr 1fr;gap:11px}
+.fr3{display:grid;grid-template-columns:1.2fr 1fr 1fr;gap:9px}
+.form-sec{font-size:13px;text-transform:uppercase;letter-spacing:.05em;color:var(--green-d);font-weight:700;margin:22px 0 12px;padding-bottom:6px;border-bottom:1px solid var(--line)}
+.form-sec:first-child{margin-top:0}
+.form-actions{margin-top:24px}
+.btn-sm{padding:7px 12px;font-size:13px}
+#f_logo{font-size:13px;padding:7px 0}
+.doctype-sel{padding:9px 14px;border:1px solid var(--green-l);border-radius:9px;font-weight:700;font-size:14px;color:var(--green-d);background:var(--green-bg);cursor:pointer}
+.doctype-sel:focus{outline:none;border-color:var(--green)}
+.tool-overlay{display:none;position:fixed;inset:0;z-index:100;background:rgba(15,23,42,.55);backdrop-filter:blur(3px);padding:20px}
+.tool-overlay.open{display:block}
+.tool-modal{position:relative;max-width:1180px;margin:0 auto;background:#fff;border-radius:18px;overflow:hidden;height:calc(100vh - 40px);display:flex;flex-direction:column;box-shadow:var(--sh2)}
+.tool-bar{display:flex;align-items:center;justify-content:space-between;padding:14px 20px;border-bottom:1px solid var(--line);background:var(--bg-soft)}
+.tool-tabs{display:flex;gap:6px;background:#fff;border:1px solid var(--line);border-radius:10px;padding:4px}
+.tool-close{width:38px;height:38px;border-radius:10px;font-size:17px;color:var(--muted);background:#fff;border:1px solid var(--line)}
+.tool-close:hover{background:#fee2e2;color:#dc2626}
+.tool-body{display:grid;grid-template-columns:420px 1fr;flex:1;overflow:hidden}
+.tool-form{padding:24px;overflow-y:auto;border-right:1px solid var(--line)}
+.tool-preview{background:#e9edf2;overflow-y:auto;padding:30px;display:flex;justify-content:center}
+.invoice-sheet{background:#fff;width:100%;max-width:620px;min-height:840px;padding:46px;box-shadow:var(--sh2);font-size:13px;color:#1f2937;height:fit-content}
+@media(max-width:900px){.tool-body{grid-template-columns:1fr}.tool-preview{display:none}}
+.line-row{display:grid;grid-template-columns:1fr 56px 84px 28px;gap:7px;margin-bottom:8px;align-items:center}
+.line-row input{padding:8px 9px;border:1px solid var(--line);border-radius:7px;width:100%;font-size:13px}
+.line-row input:focus{outline:none;border-color:var(--green)}
+.line-del{color:#dc2626;font-size:18px;text-align:center}
+.inv-top{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:34px}
+.inv-from h2{font-size:17px;margin-bottom:4px}
+.inv-from div,.inv-to div{color:#4b5563;font-size:12px;line-height:1.5}
+.inv-title{text-align:right}
+.inv-title .t{font-size:30px;font-weight:800;color:var(--green-d);letter-spacing:-.02em;text-transform:uppercase}
+.inv-title .n{color:#6b7280;font-size:13px;margin-top:2px}
+.inv-parties{display:flex;justify-content:space-between;margin-bottom:26px;gap:30px}
+.inv-block .lbl{font-size:10px;text-transform:uppercase;letter-spacing:.06em;color:#9ca3af;font-weight:700;margin-bottom:5px}
+.inv-block strong{font-size:14px}
+.inv-table{width:100%;border-collapse:collapse;margin-bottom:18px}
+.inv-table th{background:#0f172a;color:#fff;text-align:left;padding:9px 11px;font-size:11px;text-transform:uppercase;letter-spacing:.03em}
+.inv-table th:last-child,.inv-table td:last-child{text-align:right}
+.inv-table th:nth-child(2),.inv-table td:nth-child(2),.inv-table th:nth-child(3),.inv-table td:nth-child(3){text-align:right}
+.inv-table td{padding:9px 11px;border-bottom:1px solid #eef1f5;font-size:12.5px}
+.inv-totals{margin-left:auto;width:240px;font-size:13px}
+.inv-totals .row{display:flex;justify-content:space-between;padding:6px 0}
+.inv-totals .grand{border-top:2px solid #0f172a;margin-top:6px;padding-top:10px;font-weight:800;font-size:16px;color:var(--green-d)}
+.inv-legal{margin-top:34px;padding-top:16px;border-top:1px solid #eef1f5;font-size:10.5px;color:#9ca3af;line-height:1.6}
+.inv-note{margin-top:18px;font-size:12px;color:#4b5563;background:var(--green-bg);padding:12px 14px;border-radius:8px}
+.hist-panel{display:none;position:absolute;inset:56px 0 0 0;background:#fff;z-index:5;overflow-y:auto;padding:22px 24px}
+.hist-panel.open{display:block}
+.hist-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:8px}
+.hist-head strong{font-size:18px}
+.hist-note{font-size:13px;color:var(--muted);background:var(--green-bg);border:1px solid var(--green-l);border-radius:8px;padding:10px 12px;margin-bottom:18px}
+.hist-item{display:flex;align-items:center;gap:12px;border:1px solid var(--line);border-radius:10px;padding:12px 14px;margin-bottom:10px}
+.hist-item .h-badge{font-size:11px;font-weight:700;text-transform:uppercase;padding:3px 8px;border-radius:6px;background:var(--green-l);color:var(--green-d)}
+.hist-item .h-badge.devis{background:#dbeafe;color:#1d4ed8}
+.hist-item .h-main{flex:1;min-width:0}
+.hist-item .h-main b{font-size:14px}
+.hist-item .h-main span{display:block;font-size:12px;color:var(--muted)}
+.hist-item .h-total{font-weight:700;color:var(--green-d);white-space:nowrap}
+.hist-empty{text-align:center;color:var(--muted);padding:40px 0}
+.q-sheet{font-size:13.5px;color:#1f2937;line-height:1.7}
+.q-sheet h2{font-size:28px;font-weight:800;color:var(--green-d);text-transform:uppercase;letter-spacing:-.02em;margin-bottom:6px}
+.q-sheet .q-body{margin:26px 0;font-size:14px}
+.q-sheet .q-amounts{margin:22px 0;border:1px solid #eef1f5;border-radius:10px;overflow:hidden}
+.q-sheet .q-amounts .r{display:flex;justify-content:space-between;padding:10px 14px;border-bottom:1px solid #eef1f5}
+.q-sheet .q-amounts .r.tot{font-weight:800;color:var(--green-d);background:var(--green-bg);border-bottom:none}
+.q-sheet .q-sign{margin-top:40px;text-align:right;font-size:13px}
+</style>
+
+<script>
+const $ = id => document.getElementById(id);
+const KEY = 'facturepilot_v1';
+const TVA = {franchise:0, tva20:20, tva10:10, tva55:5.5};
+const CKEY = 'facturepilot_clients';
+const DKEY = 'facturepilot_docs';
+let docType = 'facture';
+let lines = [];
+let logoData = '';
+let logoAspect = 1;
+
+function todayISO(){return new Date().toISOString().slice(0,10);}
+function addDaysISO(d,n){const x=new Date(d);x.setDate(x.getDate()+n);return x.toISOString().slice(0,10);}
+function fmtDate(iso){if(!iso)return '—';const[y,m,d]=iso.split('-');return `${d}/${m}/${y}`;}
+function eur(n){return (n||0).toLocaleString('fr-FR',{minimumFractionDigits:2,maximumFractionDigits:2})+' €';}
+function esc(s){return (s||'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));}
+
+function addLine(desc='',qty=1,pu=0){lines.push({desc,qty,pu});renderLines();render();}
+function renderLines(){
+  $('lines').innerHTML = lines.map((l,i)=>`
+    <div class="line-row">
+      <input placeholder="Désignation" value="${esc(l.desc)}" oninput="lines[${i}].desc=this.value;render()">
+      <input type="number" min="0" step="1" value="${l.qty}" oninput="lines[${i}].qty=parseFloat(this.value)||0;render()">
+      <input type="number" min="0" step="0.01" value="${l.pu}" oninput="lines[${i}].pu=parseFloat(this.value)||0;render()">
+      <button class="line-del" onclick="lines.splice(${i},1);renderLines();render()" title="Supprimer">×</button>
+    </div>`).join('');
+}
+
+const DOCS={
+  facture:{label:'FACTURE',pdf:'Facture',total:'Net à payer',toParty:'Facturé à',prefix:'F-',due:true},
+  devis:{label:'DEVIS',pdf:'Devis',total:'Total estimé',toParty:'Devis pour',prefix:'D-',due:false},
+  acompte:{label:"FACTURE D'ACOMPTE",pdf:'Facture-acompte',total:'Acompte à payer',toParty:'Facturé à',prefix:'FA-',due:true},
+  avoir:{label:"FACTURE D'AVOIR",pdf:'Avoir',total:"Montant de l'avoir",toParty:'Avoir pour',prefix:'AV-',due:false,credit:true},
+  quittance:{label:'QUITTANCE DE LOYER',pdf:'Quittance',prefix:'Q-'}
+};
+function val(id){var e=$(id);return e?e.value:'';}
+function collect(){
+  return {
+    f:{name:$('f_name').value,siret:$('f_siret').value,phone:$('f_phone').value,addr:$('f_addr').value,email:$('f_email').value,iban:$('f_iban').value,logo:logoData},
+    c:{name:$('c_name').value,addr:$('c_addr').value,siret:$('c_siret').value,email:$('c_email').value},
+    d:{num:$('d_num').value,date:$('d_date').value,due:$('d_due').value,tva:$('d_tva').value,note:$('d_note').value,ref:val('d_ref')},
+    q:{logement:val('q_logement'),pstart:val('q_pstart'),pend:val('q_pend'),rent:parseFloat(val('q_rent'))||0,charges:parseFloat(val('q_charges'))||0,paydate:val('q_paydate'),city:val('q_city')},
+    lines, docType
+  };
+}
+
+function totals(data){
+  const ht = data.lines.reduce((s,l)=>s+(l.qty*l.pu),0);
+  const rate = TVA[data.d.tva]||0;
+  const tva = ht*rate/100;
+  return {ht, rate, tva, ttc:ht+tva};
+}
+
+function render(){
+  const data = collect();
+  if(data.docType==='quittance'){ renderQuittance(data); save(); return; }
+  const cfg = DOCS[data.docType]||DOCS.facture;
+  const t = totals(data);
+  const rows = data.lines.length? data.lines.map(l=>`
+    <tr><td>${esc(l.desc)||'<span style="color:#cbd5e1">Désignation…</span>'}</td>
+    <td>${l.qty}</td><td>${eur(l.pu)}</td><td>${eur(l.qty*l.pu)}</td></tr>`).join('')
+    : `<tr><td colspan="4" style="color:#cbd5e1;padding:20px;text-align:center">Ajoutez une ligne…</td></tr>`;
+  const tvaLine = data.d.tva==='franchise'
+    ? `<div class="row"><span>TVA</span><span>Non applicable</span></div>`
+    : `<div class="row"><span>TVA (${t.rate} %)</span><span>${eur(t.tva)}</span></div>`;
+  const legalTva = data.d.tva==='franchise' ? `TVA non applicable, art. 293 B du CGI.` : '';
+  const legalExtra = cfg.credit
+    ? "Le présent avoir vient en déduction des sommes dues ; il ne donne pas lieu à un versement sauf accord entre les parties."
+    : "En cas de retard de paiement, application de pénalités au taux de 3 fois le taux d'intérêt légal, ainsi qu'une indemnité forfaitaire pour frais de recouvrement de 40 € (art. L441-10 et D441-5 du Code de commerce).";
+  const legal = [legalTva, legalExtra, data.f.siret?'':'Pensez à renseigner votre numéro SIRET (mention obligatoire).'].filter(Boolean).join(' ');
+  $('invoice').innerHTML = `
+    <div class="inv-top">
+      <div class="inv-from">
+        ${logoData?`<img src="${logoData}" alt="logo" style="max-height:52px;max-width:160px;margin-bottom:8px;display:block">`:''}
+        <h2>${esc(data.f.name)||'Votre nom'}</h2>
+        <div>${esc(data.f.addr)||'Votre adresse'}</div>
+        <div>${data.f.siret?'SIRET : '+esc(data.f.siret):''}</div>
+        <div>${esc(data.f.phone)} ${data.f.phone&&data.f.email?' · ':''} ${esc(data.f.email)}</div>
+      </div>
+      <div class="inv-title">
+        <div class="t">${cfg.label}</div>
+        <div class="n">N° ${esc(data.d.num)||'—'}</div>
+        <div class="n">Date : ${fmtDate(data.d.date)}</div>
+        ${cfg.due?`<div class="n">Échéance : ${fmtDate(data.d.due)}</div>`:''}
+        ${cfg.credit&&data.d.ref?`<div class="n">Avoir sur facture : ${esc(data.d.ref)}</div>`:''}
+      </div>
+    </div>
+    <div class="inv-parties">
+      <div class="inv-block">
+        <div class="lbl">Émetteur</div>
+        <strong>${esc(data.f.name)||'—'}</strong>
+      </div>
+      <div class="inv-block" style="text-align:right">
+        <div class="lbl">${cfg.toParty}</div>
+        <strong>${esc(data.c.name)||'—'}</strong>
+        <div style="color:#6b7280;font-size:12px">${esc(data.c.addr)}</div>
+        <div style="color:#6b7280;font-size:12px">${data.c.siret?'SIRET : '+esc(data.c.siret):''}</div>
+      </div>
+    </div>
+    <table class="inv-table">
+      <thead><tr><th>Désignation</th><th>Qté</th><th>P.U. HT</th><th>Total HT</th></tr></thead>
+      <tbody>${rows}</tbody>
+    </table>
+    <div class="inv-totals">
+      <div class="row"><span>Total HT</span><span>${eur(t.ht)}</span></div>
+      ${tvaLine}
+      <div class="row grand"><span>${cfg.total}</span><span>${eur(t.ttc)}</span></div>
+    </div>
+    ${data.d.note?`<div class="inv-note">${esc(data.d.note)}</div>`:''}
+    ${data.f.iban?`<div style="margin-top:16px;font-size:12px;color:#4b5563">Règlement par virement — IBAN : ${esc(data.f.iban)}</div>`:''}
+    <div class="inv-legal">${legal}</div>
+  `;
+  save();
+}
+
+function renderQuittance(data){
+  const total=(data.q.rent||0)+(data.q.charges||0);
+  $('invoice').innerHTML = `
+    <div class="q-sheet">
+      <div class="inv-top">
+        <div class="inv-from">
+          ${logoData?`<img src="${logoData}" alt="logo" style="max-height:48px;max-width:150px;margin-bottom:8px;display:block">`:''}
+          <strong style="font-size:15px">${esc(data.f.name)||'Vous (bailleur)'}</strong>
+          <div style="color:#4b5563;font-size:12px">${esc(data.f.addr)}</div>
+          <div style="color:#4b5563;font-size:12px">${esc(data.f.phone)}</div>
+        </div>
+        <div style="text-align:right"><h2>Quittance<br>de loyer</h2><div style="color:#6b7280;font-size:12px">N° ${esc(data.d.num)||'—'}</div></div>
+      </div>
+      <div class="q-body">
+        <p>Je soussigné(e) <strong>${esc(data.f.name)||'[bailleur]'}</strong>, bailleur du logement situé <strong>${esc(data.q.logement)||'[adresse du logement]'}</strong>,</p>
+        <p>déclare avoir reçu de <strong>${esc(data.c.name)||'[locataire]'}</strong>, locataire, la somme de <strong>${eur(total)}</strong>,</p>
+        <p>au titre du paiement du loyer et des charges pour la période du <strong>${fmtDate(data.q.pstart)}</strong> au <strong>${fmtDate(data.q.pend)}</strong>, et lui en donne quittance, sous réserve de tous mes droits.</p>
+      </div>
+      <div class="q-amounts">
+        <div class="r"><span>Loyer hors charges</span><span>${eur(data.q.rent)}</span></div>
+        <div class="r"><span>Provision pour charges</span><span>${eur(data.q.charges)}</span></div>
+        <div class="r tot"><span>Total réglé</span><span>${eur(total)}</span></div>
+      </div>
+      <div class="q-sign">
+        <div>Fait à ${esc(data.q.city)||'…'}, le ${fmtDate(data.q.paydate||data.d.date)}</div>
+        <div style="margin-top:30px;color:#9ca3af">Signature du bailleur</div>
+      </div>
+      <div class="inv-legal" style="margin-top:30px">Cette quittance annule tous les reçus établis précédemment pour la même période en cas de paiement partiel. Document conforme à l'article 21 de la loi n° 89-462 du 6 juillet 1989. À conserver par le locataire.</div>
+    </div>`;
+}
+
+function save(){localStorage.setItem(KEY,JSON.stringify(collect()));saveProfile(false);}
+
+function saveProfile(msg){
+  const p={name:$('f_name').value,siret:$('f_siret').value,phone:$('f_phone').value,addr:$('f_addr').value,email:$('f_email').value,iban:$('f_iban').value,logo:logoData};
+  localStorage.setItem('facturepilot_profile',JSON.stringify(p));
+  if(msg)alert("Tes infos d'entreprise sont mémorisées ✓ Tu n'auras plus à les ressaisir sur ce navigateur.");
+}
+function loadProfile(){
+  try{
+    const p=JSON.parse(localStorage.getItem('facturepilot_profile')); if(!p)return;
+    if(!$('f_name').value)$('f_name').value=p.name||'';
+    if(!$('f_siret').value)$('f_siret').value=p.siret||'';
+    if(!$('f_phone').value)$('f_phone').value=p.phone||'';
+    if(!$('f_addr').value)$('f_addr').value=p.addr||'';
+    if(!$('f_email').value)$('f_email').value=p.email||'';
+    if(!$('f_iban').value)$('f_iban').value=p.iban||'';
+    if(!logoData&&p.logo){logoData=p.logo;computeAspect(logoData);showLogoPrev();}
+  }catch(e){}
+}
+
+function getServices(){try{return JSON.parse(localStorage.getItem('facturepilot_services'))||[];}catch(e){return [];}}
+function setServices(a){localStorage.setItem('facturepilot_services',JSON.stringify(a));}
+function renderServicePicker(){
+  const sv=getServices();
+  $('servicePickRow').style.display=sv.length?'flex':'none';
+  $('servicePicker').innerHTML='<option value="">+ Ajouter une prestation enregistrée…</option>'+sv.map((s,i)=>`<option value="${i}">${esc(s.desc)} — ${eur(s.pu)}</option>`).join('');
+}
+function saveServices(){
+  const cur=lines.filter(l=>(l.desc||'').trim());
+  if(!cur.length){alert('Ajoute au moins une prestation avec une désignation.');return;}
+  const sv=getServices();
+  cur.forEach(l=>{const i=sv.findIndex(s=>(s.desc||'').toLowerCase()===l.desc.toLowerCase());const rec={desc:l.desc,pu:l.pu};if(i>-1)sv[i]=rec;else sv.push(rec);});
+  setServices(sv); renderServicePicker();
+  alert('Prestation(s) enregistrée(s) dans ton catalogue ✓');
+}
+function addServiceLine(i){if(i==='')return;const s=getServices()[i];if(!s)return;lines.push({desc:s.desc,qty:1,pu:s.pu});renderLines();render();$('servicePicker').value='';}
+
+function getClients(){try{return JSON.parse(localStorage.getItem(CKEY))||[];}catch(e){return [];}}
+function setClients(a){localStorage.setItem(CKEY,JSON.stringify(a));}
+function renderClientPicker(){
+  const cl=getClients(); const sel=$('clientPicker');
+  $('clientPickRow').style.display = cl.length? 'flex':'none';
+  sel.innerHTML='<option value="">— Nouveau client —</option>'+cl.map((c,i)=>`<option value="${i}">${esc(c.name||'(sans nom)')}</option>`).join('');
+}
+function saveCurrentClient(){
+  const c={name:$('c_name').value,addr:$('c_addr').value,siret:$('c_siret').value,email:$('c_email').value};
+  if(!c.name.trim()){alert('Renseigne au moins le nom du client.');return;}
+  const cl=getClients();
+  const idx=cl.findIndex(x=>(x.name||'').toLowerCase()===c.name.toLowerCase());
+  if(idx>-1)cl[idx]=c; else cl.push(c);
+  setClients(cl); renderClientPicker();
+  alert('Client enregistré dans ton carnet ✓');
+}
+function pickClient(i){
+  if(i==='')return;
+  const c=getClients()[i]; if(!c)return;
+  $('c_name').value=c.name||'';$('c_addr').value=c.addr||'';$('c_siret').value=c.siret||'';$('c_email').value=c.email||'';
+  render();
+}
+
+function getDocs(){try{return JSON.parse(localStorage.getItem(DKEY))||[];}catch(e){return [];}}
+function setDocs(a){localStorage.setItem(DKEY,JSON.stringify(a));}
+function updHistCount(){const n=getDocs().length;$('histCount').textContent=n?`(${n})`:'';}  
+function saveCurrentDoc(data,t){
+  const docs=getDocs();
+  const rec={id:Date.now(),type:data.docType,num:data.d.num,date:data.d.date,client:data.c.name,total:t.ttc,data:JSON.parse(JSON.stringify(data))};
+  const idx=docs.findIndex(d=>d.type===rec.type && d.num===rec.num);
+  if(idx>-1)docs[idx]=rec; else docs.unshift(rec);
+  setDocs(docs.slice(0,60)); updHistCount();
+}
+function toggleHist(){
+  const open=$('histPanel').classList.toggle('open');
+  if(open)renderHist();
+}
+function renderHist(){
+  const docs=getDocs();
+  if(!docs.length){$('histList').innerHTML='<div class="hist-empty">Aucun document enregistré pour l\'instant.<br>Crée et télécharge une facture, elle apparaître ici automatiquement.</div>';return;}
+  $('histList').innerHTML=docs.map(d=>`
+    <div class="hist-item">
+      <span class="h-badge ${d.type==='devis'?'devis':''}}">${d.type==='devis'?'Devis':'Facture'}</span>
+      <div class="h-main">
+        <b>N° ${esc(d.num)||'—'}</b>
+        <span>${esc(d.client)||'Sans client'} · ${fmtDate(d.date)}</span>
+      </div>
+      <span class="h-total">${eur(d.total)}</span>
+      <button class="btn btn-ghost btn-sm" onclick="loadDoc(${d.id})">Ouvrir</button>
+      <button class="btn btn-ghost btn-sm" onclick="dupDoc(${d.id})">Dupliquer</button>
+      <button class="btn btn-ghost btn-sm" onclick="delDoc(${d.id})" title="Supprimer">🗑</button>
+    </div>`).join('');
+}
+function applyData(data){
+  $('f_name').value=data.f.name||'';$('f_siret').value=data.f.siret||'';$('f_phone').value=data.f.phone||'';$('f_addr').value=data.f.addr||'';$('f_email').value=data.f.email||'';$('f_iban').value=data.f.iban||'';
+  logoData=data.f.logo||''; if(logoData)computeAspect(logoData); showLogoPrev();
+  $('c_name').value=data.c.name||'';$('c_addr').value=data.c.addr||'';$('c_siret').value=data.c.siret||'';$('c_email').value=data.c.email||'';
+  $('d_date').value=data.d.date||todayISO();$('d_due').value=data.d.due||'';$('d_tva').value=data.d.tva||'franchise';$('d_note').value=data.d.note||'';
+  $('d_num').value=data.d.num||'';
+  lines=(data.lines&&data.lines.length)?JSON.parse(JSON.stringify(data.lines)):[{desc:'',qty:1,pu:0}];
+  setDocType(data.docType||'facture');
+  renderLines(); render();
+}
+function loadDoc(id){const d=getDocs().find(x=>x.id===id); if(d){applyData(d.data); toggleHist();}}
+function dupDoc(id){
+  const d=getDocs().find(x=>x.id===id); if(!d)return;
+  const copy=JSON.parse(JSON.stringify(d.data));
+  copy.d.num=(copy.d.num||'').replace(/(\d+)(?!.*\d)/, m=>String(+m+1).padStart(m.length,'0'));
+  copy.d.date=todayISO();
+  applyData(copy); toggleHist();
+}
+function delDoc(id){
+  if(!confirm('Supprimer ce document de l\'historique ?'))return;
+  setDocs(getDocs().filter(x=>x.id!==id)); updHistCount(); renderHist();
+}
+
+function setDocType(t){
+  docType=t;
+  var cfg=DOCS[t]||DOCS.facture;
+  var sel=$('docTypeSel'); if(sel&&sel.value!==t) sel.value=t;
+  var cur=$('d_num').value||'';
+  var m=cur.match(/^[A-Z]{1,3}-(.+)$/);
+  if(m) $('d_num').value=cfg.prefix+m[1];
+  else if(cur) $('d_num').value=cfg.prefix+cur;
+  updateFormMode(t);
+  render();
+}
+function updateFormMode(t){
+  var cfg=DOCS[t]||DOCS.facture, isQuit=t==='quittance';
+  var show=function(id,on){var e=$(id); if(e) e.style.display=on?'':'none';};
+  show('secPrestations',!isQuit);
+  show('accOptions',!isQuit);
+  show('secQuittance',isQuit);
+  show('rowRef',t==='avoir');
+  show('fgDue',!!cfg.due);
+  var ct=$('secClientTitle'); if(ct) ct.textContent=isQuit?'Le locataire':'Votre client';
+  var dt=$('secDocTitle'); if(dt) dt.textContent=isQuit?'Quittance':'Document';
+  var b=$('dlBtn'); if(b) b.textContent=isQuit?'⬇ Télécharger la quittance (PDF)':'⬇ Télécharger le PDF';
+}
+
+function openTool(type){
+  $('toolOverlay').classList.add('open');
+  document.body.style.overflow='hidden';
+  if(type==='devis') setDocType('devis');
+  try{
+    var hasProfile=!!localStorage.getItem('facturepilot_profile');
+    var acc=document.getElementById('accCompany');
+    if(acc) acc.open = !hasProfile;
+    setTimeout(function(){ var f=$(hasProfile?'c_name':'f_name'); if(f) f.focus(); },90);
+  }catch(e){}
+}
+function closeTool(){
+  $('toolOverlay').classList.remove('open');
+  document.body.style.overflow='';
+}
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeTool();});
+
+function downloadPDF(){
+  const data = collect();
+  if(!window.jspdf){alert('Le générateur PDF charge encore, réessayez dans 1 seconde.');return;}
+  const {jsPDF}=window.jspdf;
+  const doc=new jsPDF({unit:'mm',format:'a4'});
+  if(data.docType==='quittance'){ pdfQuittance(doc,data); return; }
+  const cfg=DOCS[data.docType]||DOCS.facture;
+  const t=totals(data);
+  const M=18; let y=22;
+  if(logoData){
+    try{
+      const lh=14, lw=Math.min(42, lh*logoAspect);
+      const fmt=logoData.indexOf('image/png')>-1?'PNG':'JPEG';
+      doc.addImage(logoData, fmt, M, 12, lw, lh);
+      y=12+lh+6;
+    }catch(e){}
+  }
+  doc.setFontSize(16).setFont(undefined,'bold').text(data.f.name||'Votre nom',M,y);
+  doc.setFontSize(cfg.label.length>9?17:28).setTextColor(21,128,61).text(cfg.label,192,y,{align:'right'});
+  doc.setTextColor(40,40,40);
+  y+=6; doc.setFontSize(9).setFont(undefined,'normal');
+  (data.f.addr||'').split('\n').forEach(l=>{doc.text(l,M,y);y+=4;});
+  if(data.f.siret){doc.text('SIRET : '+data.f.siret,M,y);y+=4;}
+  if(data.f.phone||data.f.email){doc.text([data.f.phone,data.f.email].filter(Boolean).join('  ·  '),M,y);y+=4;}
+  doc.setFontSize(9).setTextColor(110,110,110);
+  doc.text('N° '+(data.d.num||'—'),192,30,{align:'right'});
+  doc.text('Date : '+fmtDate(data.d.date),192,35,{align:'right'});
+  if(cfg.due)doc.text('Échéance : '+fmtDate(data.d.due),192,40,{align:'right'});
+  if(cfg.credit&&data.d.ref)doc.text('Avoir sur : '+data.d.ref,192,45,{align:'right'});
+  doc.setTextColor(40,40,40);
+  y=Math.max(y,50)+6;
+  doc.setFontSize(8).setTextColor(150,150,150).text(cfg.toParty.toUpperCase(),192,y,{align:'right'});
+  y+=5; doc.setFontSize(11).setFont(undefined,'bold').setTextColor(40,40,40).text(data.c.name||'—',192,y,{align:'right'});
+  doc.setFont(undefined,'normal').setFontSize(9).setTextColor(90,90,90);
+  y+=5;(data.c.addr||'').split('\n').forEach(l=>{doc.text(l,192,y,{align:'right'});y+=4;});
+  if(data.c.siret){doc.text('SIRET : '+data.c.siret,192,y,{align:'right'});y+=4;}
+  y+=6;
+  doc.setFillColor(15,23,42).rect(M,y,174,8,'F');
+  doc.setTextColor(255,255,255).setFontSize(8.5).setFont(undefined,'bold');
+  doc.text('DÉSIGNATION',M+2,y+5.3);
+  doc.text('QTÉ',M+118,y+5.3,{align:'right'});
+  doc.text('P.U. HT',M+148,y+5.3,{align:'right'});
+  doc.text('TOTAL HT',M+172,y+5.3,{align:'right'});
+  y+=8; doc.setTextColor(40,40,40).setFont(undefined,'normal').setFontSize(9.5);
+  data.lines.forEach(l=>{
+    const desc=doc.splitTextToSize(l.desc||'—',110);
+    doc.text(desc,M+2,y+5);
+    doc.text(String(l.qty),M+118,y+5,{align:'right'});
+    doc.text(eur(l.pu),M+148,y+5,{align:'right'});
+    doc.text(eur(l.qty*l.pu),M+172,y+5,{align:'right'});
+    const h=Math.max(7,desc.length*4.5);
+    doc.setDrawColor(235,238,242).line(M,y+h,M+174,y+h);
+    y+=h;
+  });
+  y+=6; const tx=120;
+  doc.setFontSize(10);
+  doc.text('Total HT',tx,y); doc.text(eur(t.ht),M+172,y,{align:'right'}); y+=6;
+  if(data.d.tva==='franchise'){doc.text('TVA',tx,y);doc.text('Non applicable',M+172,y,{align:'right'});}
+  else{doc.text('TVA ('+t.rate+'%)',tx,y);doc.text(eur(t.tva),M+172,y,{align:'right'});}
+  y+=4; doc.setDrawColor(15,23,42).setLineWidth(.5).line(tx,y,M+172,y); y+=6;
+  doc.setFont(undefined,'bold').setFontSize(13).setTextColor(21,128,61);
+  doc.text(cfg.total,tx,y);
+  doc.text(eur(t.ttc),M+172,y,{align:'right'});
+  doc.setTextColor(40,40,40).setFont(undefined,'normal');
+  y+=12;
+  if(data.d.note){doc.setFontSize(9.5);const n=doc.splitTextToSize(data.d.note,174);doc.text(n,M,y);y+=n.length*4.5+4;}
+  if(data.f.iban){doc.setFontSize(9).text('Règlement par virement — IBAN : '+data.f.iban,M,y);y+=8;}
+  const legalParts=[];
+  if(data.d.tva==='franchise')legalParts.push('TVA non applicable, art. 293 B du CGI.');
+  legalParts.push(cfg.credit
+    ? "Le présent avoir vient en déduction des sommes dues, sans versement sauf accord entre les parties."
+    : "En cas de retard de paiement : pénalités au taux de 3 fois le taux d'intérêt légal et indemnité forfaitaire de 40 € pour frais de recouvrement (art. L441-10 et D441-5 du Code de commerce).");
+  doc.setFontSize(7.5).setTextColor(150,150,150);
+  const lg=doc.splitTextToSize(legalParts.join(' '),174);
+  doc.text(lg,M,280);
+  saveCurrentDoc(data, t);
+  const fname=cfg.pdf+'-'+(data.d.num||'sans-numero').replace(/[^\w\-]/g,'_')+'.pdf';
+  doc.save(fname);
+}
+
+function pdfQuittance(doc,data){
+  const M=18; let y=24;
+  const total=(data.q.rent||0)+(data.q.charges||0);
+  if(logoData){try{const lh=13,lw=Math.min(40,lh*logoAspect);const fmt=logoData.indexOf('image/png')>-1?'PNG':'JPEG';doc.addImage(logoData,fmt,M,12,lw,lh);}catch(e){}}
+  doc.setFontSize(11).setFont(undefined,'bold').setTextColor(40,40,40).text(data.f.name||'Bailleur',M,y);
+  doc.setFont(undefined,'normal').setFontSize(9).setTextColor(90,90,90);
+  let yy=y+5;(data.f.addr||'').split('\n').forEach(l=>{doc.text(l,M,yy);yy+=4;});
+  if(data.f.phone){doc.text(data.f.phone,M,yy);yy+=4;}
+  doc.setFontSize(21).setFont(undefined,'bold').setTextColor(21,128,61).text('QUITTANCE DE LOYER',192,y+2,{align:'right'});
+  doc.setFontSize(9).setFont(undefined,'normal').setTextColor(110,110,110).text('N° '+(data.d.num||'—'),192,y+9,{align:'right'});
+  doc.setTextColor(40,40,40);
+  y=Math.max(yy,y+16)+12;
+  doc.setFontSize(11);
+  const body='Je soussigné(e) '+(data.f.name||'[bailleur]')+', bailleur du logement situé '+(data.q.logement||'[adresse du logement]')+', déclare avoir reçu de '+(data.c.name||'[locataire]')+', locataire, la somme de '+eur(total)+' au titre du paiement du loyer et des charges pour la période du '+fmtDate(data.q.pstart)+' au '+fmtDate(data.q.pend)+', et lui en donne quittance, sous réserve de tous mes droits.';
+  const bl=doc.splitTextToSize(body,174); doc.text(bl,M,y); y+=bl.length*6+10;
+  doc.setFontSize(10);
+  doc.text('Loyer hors charges',M+2,y); doc.text(eur(data.q.rent),M+172,y,{align:'right'}); y+=7;
+  doc.text('Provision pour charges',M+2,y); doc.text(eur(data.q.charges),M+172,y,{align:'right'}); y+=4;
+  doc.setDrawColor(15,23,42).setLineWidth(.5).line(M,y,M+174,y); y+=7;
+  doc.setFont(undefined,'bold').setFontSize(13).setTextColor(21,128,61);
+  doc.text('Total réglé',M+2,y); doc.text(eur(total),M+172,y,{align:'right'});
+  doc.setFont(undefined,'normal').setTextColor(40,40,40); y+=18;
+  doc.setFontSize(10).text('Fait à '+(data.q.city||'…')+', le '+fmtDate(data.q.paydate||data.d.date),192,y,{align:'right'});
+  doc.text('Signature du bailleur',192,y+12,{align:'right'});
+  doc.setFontSize(7.5).setTextColor(150,150,150);
+  const legal=doc.splitTextToSize("Cette quittance annule tous les reçus établis précédemment pour la même période en cas de paiement partiel. Document conforme à l'article 21 de la loi n° 89-462 du 6 juillet 1989. À conserver par le locataire.",174);
+  doc.text(legal,M,282);
+  saveCurrentDoc(data,{ttc:total});
+  const fname='Quittance-'+(data.d.num||'sans-numero').replace(/[^\w\-]/g,'_')+'.pdf';
+  doc.save(fname);
+}
+
+function computeAspect(durl){const i=new Image();i.onload=()=>{logoAspect=i.width/i.height||1;};i.src=durl;}
+function onLogo(input){
+  const file=input.files&&input.files[0]; if(!file)return;
+  const reader=new FileReader();
+  reader.onload=e=>{
+    const img=new Image();
+    img.onload=()=>{
+      const max=260; let w=img.width,h=img.height;
+      if(w>max||h>max){const r=Math.min(max/w,max/h);w=Math.round(w*r);h=Math.round(h*r);}
+      const cv=document.createElement('canvas');cv.width=w;cv.height=h;
+      cv.getContext('2d').drawImage(img,0,0,w,h);
+      const isPng=/png/i.test(file.type);
+      logoData=cv.toDataURL(isPng?'image/png':'image/jpeg',0.9);
+      logoAspect=w/h||1;
+      showLogoPrev(); render();
+    };
+    img.src=e.target.result;
+  };
+  reader.readAsDataURL(file);
+}
+function showLogoPrev(){
+  if(!logoData){$('logoPrev').style.display='none';return;}
+  $('logoImg').src=logoData; $('logoPrev').style.display='flex';
+}
+function removeLogo(){logoData='';logoAspect=1;$('f_logo').value='';showLogoPrev();render();}
+
+function load(){
+  try{
+    const raw = localStorage.getItem(KEY);
+    if(!raw) return false;
+    const d = JSON.parse(raw);
+    if(d.f){$('f_name').value=d.f.name||'';$('f_siret').value=d.f.siret||'';$('f_phone').value=d.f.phone||'';$('f_addr').value=d.f.addr||'';$('f_email').value=d.f.email||'';$('f_iban').value=d.f.iban||'';if(d.f.logo){logoData=d.f.logo;computeAspect(logoData);showLogoPrev();}}
+    if(d.c){$('c_name').value=d.c.name||'';$('c_addr').value=d.c.addr||'';$('c_siret').value=d.c.siret||'';$('c_email').value=d.c.email||'';}
+    if(d.d){$('d_num').value=d.d.num||'';$('d_date').value=d.d.date||todayISO();$('d_due').value=d.d.due||'';$('d_tva').value=d.d.tva||'franchise';$('d_note').value=d.d.note||'';if($('d_ref'))$('d_ref').value=d.d.ref||'';}
+    if(d.q){var qs={q_logement:d.q.logement,q_pstart:d.q.pstart,q_pend:d.q.pend,q_rent:d.q.rent,q_charges:d.q.charges,q_paydate:d.q.paydate,q_city:d.q.city};for(var k in qs){if($(k)&&qs[k]!=null&&qs[k]!=='')$(k).value=qs[k];}}
+    if(d.docType){docType=d.docType;}
+    if(d.lines&&d.lines.length){lines=d.lines;}
+    return true;
+  }catch(e){return false;}
+}
+function resetData(){
+  if(!confirm('Réinitialiser tous les champs ?'))return;
+  localStorage.removeItem(KEY);
+  location.reload();
+}
+
+window.addEventListener('DOMContentLoaded',()=>{
+  load();
+  loadProfile();
+  if(!$('d_date').value)$('d_date').value=todayISO();
+  if(!$('d_due').value)$('d_due').value=addDaysISO(todayISO(),30);
+  if(!$('d_num').value)$('d_num').value='F-'+new Date().getFullYear()+'-001';
+  if(!lines.length){lines=[{desc:'',qty:1,pu:0}];}
+  if(!$('q_pstart').value){var n=new Date();$('q_pstart').value=new Date(n.getFullYear(),n.getMonth(),1).toISOString().slice(0,10);$('q_pend').value=new Date(n.getFullYear(),n.getMonth()+1,0).toISOString().slice(0,10);}
+  if(!$('q_paydate').value)$('q_paydate').value=todayISO();
+  renderClientPicker(); renderServicePicker(); updHistCount();
+  if($('docTypeSel'))$('docTypeSel').value=docType;
+  updateFormMode(docType);
+  renderLines(); render();
+});
+</script>
+</body>
+</html>
