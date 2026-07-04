@@ -259,4 +259,34 @@ section{padding:84px 0}
 .acc-body{padding:15px}
 .acc-body .fg:last-child,.acc-body .fr2:last-child{margin-bottom:0}
 
+/* ---- Effets dynamiques ---- */
+
+/* Step & stat — hover lift */
+.step{transition:transform .35s cubic-bezier(.2,.8,.2,1),box-shadow .35s}
+.step:hover{transform:translateY(-5px);box-shadow:var(--sh2)}
+.stat{transition:transform .3s cubic-bezier(.2,.8,.2,1),box-shadow .3s}
+.stat:hover{transform:translateY(-4px);box-shadow:var(--sh2)}
+
+/* Guide card — anneau vert + glow au survol */
+.guide-card{transition:transform .35s cubic-bezier(.2,.8,.2,1),box-shadow .35s,border-color .35s}
+.guide-card:hover{transform:translateY(-6px);box-shadow:var(--sh2),0 0 0 3px var(--green-l);border-color:var(--green)}
+
+/* Boutons — reflet lumineux en boucle */
+@keyframes btnshine{0%{transform:translateX(-200%)}100%{transform:translateX(300%)}}
+.btn-primary::before{content:'';position:absolute;top:0;left:0;width:40%;height:100%;background:linear-gradient(115deg,transparent,rgba(255,255,255,.22),transparent);animation:btnshine 4s ease-in-out infinite;pointer-events:none}
+
+/* CTA banner — lueur verte qui se déplace */
+@keyframes ctamove{0%,100%{transform:translateX(0) scale(1)}50%{transform:translateX(70%) scale(1.15)}}
+.cta-banner::before{content:'';position:absolute;top:-20%;left:-20%;width:50%;height:150%;background:radial-gradient(ellipse at center,rgba(22,163,74,.25),transparent 65%);animation:ctamove 10s ease-in-out infinite;pointer-events:none}
+
+/* ---- Correctifs mobile ---- */
+@media(max-width:640px){
+  section{padding:56px 0}
+  .aff-box{padding:32px 20px}
+  .aff-box h3{font-size:24px}
+  .aff-box .btn-primary{white-space:normal;line-height:1.4}
+  .cta-banner{margin:0;padding:40px 22px}
+  .hero{padding:56px 0 48px}
+}
+
 @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.reveal{opacity:1;transform:none}}
